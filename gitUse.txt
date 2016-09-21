@@ -1,13 +1,21 @@
+1 ******管理员操作*****
+
 git clone git@github.com:ruhuansanmei/gituse.git
 git branch development
 git push -u origin development （在远程添加与本地分支同名的development分支）
 //以上为管理员操作
 
 
+
+2 *****开发者初始化过程*****
+
 git clone git@github.com:ruhuansanmei/gituse.git
 git checkout -b development origin/development 
 //以上为开发者初始化过程
 
+
+
+3 *****功能分支的操作过程*****
 git checkout -b txt-feature development 
 git stage gitUse.txt
 git commit -m '功能开发操作方式'
@@ -20,6 +28,9 @@ git push
 git branch -d txt-feature
 //以上为功能分支的操作过程
 
+
+
+4 *****发布分支的操作过程*****
 git checkout -b release-0.1 development
 git checkout master
 git merge release-0.1
@@ -33,6 +44,8 @@ git push --tags
 //以上为发布分支的操作过程
 
 
+
+5 *****修复bug过程*****
 git checkout -b bug-fix master 
 git checkout master
 git merge bug-fix
@@ -47,3 +60,11 @@ git branch -d bug-fix
 //以上为修复bug过程
 
 
+
+
+
+
+        *****补充*****
+ssh-keygen -t rsa -C 'email@com' //用来生成秘钥
+git stash 
+git stash pop
