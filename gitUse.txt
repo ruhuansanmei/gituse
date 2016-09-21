@@ -9,7 +9,15 @@ git checkout -b development origin/development
 //以上为开发者初始化过程
 
 git checkout -b txt-feature development 
-git stage 
+git stage gitUse.txt
+git commit -m '功能开发操作方式'
+
+
+git pull origin development
+git checkout development
+git merge txt-feature
+git push
+git branch -d txt-feature
 
 
 
