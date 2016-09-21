@@ -18,6 +18,19 @@ git checkout development
 git merge txt-feature
 git push
 git branch -d txt-feature
+//以上为功能分支的操作过程
+
+git checkout -b release-0.1 development
+git checkout master
+git merge release-0.1
+git push
+git checkout development
+git merge release-0.1
+git push
+git branch -d release-0.1
+git tag -a 0.1 -m "Initial public release" master
+git push --tags
+//以上为发布分支的操作过程
 
 
 
