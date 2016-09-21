@@ -33,5 +33,17 @@ git push --tags
 //以上为发布分支的操作过程
 
 
+git checkout -b bug-fix master 
+git checkout master
+git merge bug-fix
+git push
+
+
+git checkout develop
+git merge bug-fix
+git push
+git branch -d bug-fix
+
+//以上为修复bug过程
 
 
