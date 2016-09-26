@@ -3,6 +3,9 @@
 git clone git@github.com:ruhuansanmei/gituse.git
 git branch development
 git push -u origin development （在远程添加与本地分支同名的development分支）
+
+git branch test
+git push -u origin test （在远程添加与本地分支同名的development分支）
 //以上为管理员操作
 
 
@@ -10,17 +13,21 @@ git push -u origin development （在远程添加与本地分支同名的develop
 2 *****开发者初始化过程*****
 
 git clone git@github.com:ruhuansanmei/gituse.git
-git checkout -b development origin/development 
+git checkout -b development origin/development
+git checkout -b test origin/test
 //以上为开发者初始化过程
 
 
 
 3 *****功能分支的操作过程*****
 git checkout -b txt-feature development 
+(coding)
 git stage gitUse.txt
 git commit -m '功能开发操作方式'
+git push -u origin txt-feature
 
-
+(Code Review)
+git checkout txt-feature
 git pull origin development
 git checkout development
 git merge txt-feature
@@ -29,9 +36,30 @@ git branch -d txt-feature
 //以上为功能分支的操作过程
 
 
+4 *****测试分支操作流程*****
+git checkout test
+git pull origin development
+git push
+(testing)
 
-4 *****发布分支的操作过程*****
-git checkout -b release-0.1 development
+
+git checkout -b bug-fix origin/test
+(fixing)
+git stage fileName
+git commit -m 'bug修复'
+git checkout test 
+git merge bug-fix 
+git push
+git checkout development
+git merge bug-fix
+git push
+git checkout -d bug-fix
+
+
+
+
+5 *****发布分支的操作过程*****
+git checkout -b release-0.1 test
 git checkout master
 git merge release-0.1
 git push
@@ -47,14 +75,14 @@ git push --tags
 
 
 
-5 *****修复bug过程*****
+6 *****(已经发布版本)修复bug过程*****
 git checkout -b bug-fix master 
 git checkout master
 git merge bug-fix
 git push
 
 
-git checkout develop
+git checkout development
 git merge bug-fix
 git push
 git branch -d bug-fix
