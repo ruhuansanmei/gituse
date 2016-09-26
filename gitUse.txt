@@ -5,7 +5,7 @@ git branch development
 git push -u origin development （在远程添加与本地分支同名的development分支）
 
 git branch test
-git push -u origin test （在远程添加与本地分支同名的development分支）
+git push -u origin test （在远程添加与本地分支同名的test分支）
 //以上为管理员操作
 
 
@@ -59,7 +59,7 @@ git checkout -d bug-fix
 
 
 5 *****发布分支的操作过程*****
-git checkout -b release-0.1 test
+git checkout -b release-0.1 origin/test
 git checkout master
 git merge release-0.1
 git push
@@ -76,7 +76,7 @@ git push --tags
 
 
 6 *****(已经发布版本)修复bug过程*****
-git checkout -b bug-fix master 
+git checkout -b bug-fix origin/master 
 git checkout master
 git merge bug-fix
 git push
