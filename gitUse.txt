@@ -20,19 +20,19 @@ git checkout -b test origin/test
 
 
 3 *****功能分支的操作过程*****
-git checkout -b txt-feature development 
+git checkout -b feature-txt development 
 (coding)
 git stage gitUse.txt
 git commit -m '功能开发操作方式'
-git push -u origin txt-feature
+git push -u origin feature-txt
 
 (Code Review)
-git checkout txt-feature
+git checkout feature-txt
 git pull origin development
 git checkout development
-git merge txt-feature
+git merge feature-txt
 git push
-git branch -d txt-feature
+git branch -d feature-txt
 //以上为功能分支的操作过程
 
 
