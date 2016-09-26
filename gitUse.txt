@@ -43,17 +43,17 @@ git push
 (testing)
 
 
-git checkout -b bug-fix origin/test
+git checkout -b bug-1 origin/test
 (fixing)
 git stage fileName
 git commit -m 'bug修复'
 git checkout test 
-git merge bug-fix 
+git merge bug-1 
 git push
 git checkout development
-git merge bug-fix
+git merge bug-1
 git push
-git checkout -d bug-fix
+git checkout -d bug-1
 
 
 
@@ -76,16 +76,16 @@ git push --tags
 
 
 6 *****(已经发布版本)修复bug过程*****
-git checkout -b bug-fix origin/master 
+git checkout -b fix-1 origin/master 
 git checkout master
-git merge bug-fix
+git merge fix-1
 git push
 
 
 git checkout development
-git merge bug-fix
+git merge fix-1
 git push
-git branch -d bug-fix
+git branch -d fix-1
 
 //以上为修复bug过程
 
